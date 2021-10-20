@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life_Game</title>
+</head>
+<body>
+    <label for = 'input_row'>row : </label>
+    <input id='input_row' type = 'number'>
+    <label for = 'input_column'>column : </label>
+    <input id='input_column' type = 'number'>
+    //실행버튼
+
+    <canvas id='canvas' width='800' height='3000'></canvas>
+    <script src="lifegame.js">
+        const canvas = document.getElementById('canvas');
+
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = 'gray';
+
+        const borderWidth = 1;
+        const blockSize = 30;
+
+        for (x = 0; x < document.getElementById('input_row').value; x++) {
+            for (y = 0; y < document.getElementById('input_column').value; y++){
+                ctx.fillRect(
+                    borderWidth*x + blockSize*x,
+                    borderWidth*y + blockSize*y,
+                    blockSize,
+                    blockSize
+                );
+            }
+        }
+
+    </script>
+</body>
+</html>
