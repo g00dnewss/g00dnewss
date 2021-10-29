@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id = 'table'>
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>날짜</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>번호1</td>
+            <td onclick="click()"><center>제목1</center></td>
+            <td>날짜1</td>
+          </tr>
+          <tr onclick="btn()">
+            <td  onclick="btn()">번호2</td>
+            <td onclick="btn()"><center>제목2</center></td>
+            <td onclick="click()">날짜2</td>
+          </tr>
+        </tbody>
+      </table>
+      <script>
+      function click(){
+        
+         document.getElementById('table').rows[1].cells[1].innerHTML=1
+      }
+      function btn(){ 
+          alert(document.getElementById('table').rows[1].cells[1].innerHTML); } </script>
+
+  <button onclick="click(); btn()" > 눌러봐 </button>
+</body>
+</html>

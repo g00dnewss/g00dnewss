@@ -1,0 +1,1 @@
+console.log(document.getElementById('table').rows[1].column[1]);
