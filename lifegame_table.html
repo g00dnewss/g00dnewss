@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lifegame_table</title>
+</head>
+<body>
+    row : <input type="number" id = "row">
+    column : <input type="number" id="column">
+    
+    <script>
+        //표 생성 함수
+        function makegameboard(a,b) {
+            let gameboard = "<table id='Gameboard'  border = 1px width='800' height='800' align='center'>";
+            for (i = 1; i <= a; i++ ){
+                gameboard+= "<tr>";
+                for(j = 1; j <= b; j++){
+                    gameboard+= "<td id='i,j' style='background-color:white' onclick='chBackcolor(this); click1();' >" + "</td>";
+                }
+                gameboard+= "</tr>";
+            }
+            gameboard+= "</table>";
+            area.innerHTML = gameboard;
+        }
+        // 클릭시 색 변경
+        function chBackcolor(e) {
+           e.style.background = 'black';
+        }
+         //클릭시 값 부여
+
+         function click1() {
+             return 1;
+         }
+        
+        //function 작동
+        function start(){
+         let  table = document.getElementById("Gameboard");
+            for( i=0; i < document.getElementById(row).value; i++){
+                for(j = 0; j < document.getElementById(column).value; j++){
+                    let aroundsum = table.rows[i-1].cells[j-1].innerHTML+table.rows[i].cells[j-1].innerHTML+table.rows[i+1].cells[j-1].innerHTML+table.rows[i-1].cells[j].innerHTML+table.rows[i+1].cells[j].innerHTML+table.rows[i-1].cells[j+1].innerHTML+table.rows[i].cells[j+1].innerHTML+table.rows[i+1].cells[j+1].innerHTML;
+                    if (table.rows[i].cells[j].innerHTML == 1){
+                        if(aroundsum == 2 || aroundsum == 3){
+                            table.rows[i].cells[j].style.backgroundColor = "black"
+                       }else{
+                            table.rows[i].cells[j].style.backgroundColor = "white"
+                       };
+                    };
+                    if (table.rows[i].cells[j].innerHTML == 0){
+                        if(aroundsum == 3){
+                            table.rows[i].cells[j].style.backgroundColor = "black"
+                       }else{
+                            table.rows[i].cells[j].style.backgroundColor = "white"
+                       };
+                    };
+                 }
+            }   
+        }
+      
+
+        //break 함수
+    </script>
+    <button onclick="makegameboard(row.value, column.value)">make board</button>
+    <button onclick="start()" img="사진">시작</button>
+    <div id = "area"></div>
+</body>
+</html>
